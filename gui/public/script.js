@@ -64,6 +64,7 @@ class CardMatchingGame {
     }
 
     renderGameBoard() {
+<<<<<<< HEAD
     const gameBoard = document.getElementById('game-board');
     const cols = this.gameState.cols || 4;
     gameBoard.style.display = 'grid';
@@ -94,6 +95,22 @@ class CardMatchingGame {
     this.previousMatchedIndices = newMatchedIndices;
 }
 
+=======
+        const gameBoard = document.getElementById('game-board');
+        const cols = this.gameState.cols || 4; // fallback to 4 if not present
+        gameBoard.style.display = 'grid';
+        gameBoard.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        
+        // Clear existing cards
+        gameBoard.innerHTML = '';
+        
+        // Create cards
+        this.gameState.cards.forEach((card, index) => {
+            const cardElement = this.createCardElement(card, index);
+            gameBoard.appendChild(cardElement);
+        });
+    }
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
 
     createCardElement(card, index) {
         const cardDiv = document.createElement('div');
@@ -121,11 +138,14 @@ class CardMatchingGame {
 
     async handleCardClick(row, col) {
         if (this.isProcessing) return;
+<<<<<<< HEAD
         const flipped = this.gameState.cards.filter(card => card.isFlipped && !card.isMatched);
 
         if (flipped.length >= 2) {
         return;
     }
+=======
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
         this.isProcessing = true;
 
         try {
@@ -137,6 +157,7 @@ class CardMatchingGame {
             const data = await response.json();
 
             if (data.success) {
+<<<<<<< HEAD
                 this.gameState = data.gameState;
                 this.renderGameBoard();
                 
@@ -145,11 +166,17 @@ class CardMatchingGame {
                     this.showWinScreen();
                     return;
                 }
+=======
+                // Optimistically show the new state immediately
+                this.gameState = data.gameState;
+                this.renderGameBoard();
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
 
                 // Find currently flipped (but not matched) cards
                 const flipped = this.gameState.cards.filter(card => card.isFlipped && !card.isMatched);
 
                 if (flipped.length === 2) {
+<<<<<<< HEAD
     const [card1, card2] = flipped;
 
     if (card1.symbol !== card2.symbol) {
@@ -184,13 +211,33 @@ class CardMatchingGame {
 }
 
 
+=======
+                    // Wait 1 second so the user can see both cards
+                    setTimeout(async () => {
+                        // Call the backend to flip back the cards
+                        await fetch(`/api/game/${this.gameId}/flipback`, { method: 'POST' });
+                        // Fetch the latest game state from backend
+                        const stateResponse = await fetch(`/api/game/${this.gameId}/state`);
+                        const stateData = await stateResponse.json();
+                        this.gameState = stateData;
+                        this.renderGameBoard();
+                        this.isProcessing = false;
+                    }, 1000);
+                    return; // Don't set isProcessing to false yet
+                }
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
             } else {
                 this.showError(data.message);
             }
         } catch (error) {
             this.showError('Failed to flip card');
         } finally {
+<<<<<<< HEAD
             this.isProcessing = false;
+=======
+            // Only set isProcessing to false if not waiting for timeout
+            if (this.isProcessing) this.isProcessing = false;
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
         }
     }
 
@@ -397,9 +444,12 @@ class CardMatchingGame {
 
     showWinScreen() {
         this.hideAllScreens();
+<<<<<<< HEAD
         this.showHighScores(); // Optional: preload high scores
         this.showAnalysis();   // Optional: preload analysis
 
+=======
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
         document.getElementById('win-screen').classList.add('active');
         
         // Populate win stats

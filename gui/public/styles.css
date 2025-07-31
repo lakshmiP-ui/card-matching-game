@@ -357,7 +357,11 @@ body {
     bottom: 0;
     background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
     transition: transform 0.5s cubic-bezier(0.4, 2, 0.6, 1);
+<<<<<<< HEAD
     z-index: 0;
+=======
+    z-index: 2;
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
     border-radius: 12px;
     backface-visibility: hidden;
     transform: rotateY(0deg);
@@ -368,6 +372,7 @@ body {
     transform: rotateY(180deg);
 }
 
+<<<<<<< HEAD
 .card.just-matched {
     animation: pop 0.3s;
 }
@@ -376,6 +381,12 @@ body {
 .card.matched {
     background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
     border-color: #48bb78;
+=======
+.card.matched {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    border-color: #48bb78;
+    animation: pop 0.3s;
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
 }
 
 @keyframes pop {
@@ -399,6 +410,7 @@ body {
     display: none;
 }
 
+<<<<<<< HEAD
 @keyframes mismatchPop {
   0% { transform: scale(1); background-color: #ff4d4d; }
   50% { transform: scale(1.1); background-color: #ff9999; }
@@ -422,6 +434,8 @@ body {
 }
 
 
+=======
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -701,9 +715,13 @@ body {
     background: rgba(245, 101, 101, 0.1);
     border: 2px solid #f56565;
     color: #742a2a;
+<<<<<<< HEAD
 } 
 
 .card.mismatch::before {
   background: #ff4d4d !important;
   animation: mismatchPop 0.5s ease-in-out;
 }
+=======
+} 
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115

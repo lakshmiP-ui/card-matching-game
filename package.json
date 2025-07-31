@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "card-matching-game",
   "version": "1.0.0",
@@ -21,4 +22,29 @@
   "devDependencies": {
     "jest": "^29.7.0"
   }
+=======
+{
+  "name": "card-matching-game",
+  "version": "1.0.0",
+  "description": "A comprehensive card matching game with CLI and GUI modes implementing DSA concepts",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "cli": "node cli/cli.js",
+    "gui": "node gui/server.js",
+    "test": "jest"
+  },
+  "keywords": ["game", "matching", "dsa", "javascript", "cli", "gui"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "readline-sync": "^1.4.10",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+>>>>>>> c94f7a6546e2812e4a2019980d37453b97ff9115
 } 
